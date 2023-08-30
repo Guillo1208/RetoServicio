@@ -25,21 +25,21 @@ public class PostUserStepDef {
 
     }
 
-    @When("I consume the endpoint {string} and I send the user information email {string}, username {string} password {string} firstname {string} lastname {string}")
-    public void iConsumeTheEndpointAndISendTheUserInformationEmailUsernamePasswordFirstnameLastname(String endpoint, String email, String username, String password, String firstname, String lastname) {
+    @When("I consume the endpoint and I send the user information email, username password firstname lastname")
+    public void iConsumeTheEndpointAndISendTheUserInformationEmailUsernamePasswordFirstnameLastname() {
         user.attemptsTo(
                 PostUserTask.on()
         );
     }
 
-    @Then("I validate the response service {int}")
-    public void iValidateTheResponseService(Integer resServer) {
+    @Then("I validate the response services")
+    public void iValidateTheResponseServices() {
 
         user.should(
                 seeThat(
                         "The response code was: ",
                         ServerResponse.was(),
-                        equalTo(resServer)
+                        equalTo(200)
                 )
         );
 

@@ -26,20 +26,20 @@ public class PutUserStepDef {
 
     }
 
-    @When("I consume endpoint {string} and I send the user information email {string}, username {string} password {string} firstname {string} lastname {string}")
-    public void iConsumeEndpointAndISendTheUserInformationEmailUsernamePasswordFirstnameLastname(String endpoint, String email, String username, String password, String firstname, String lastname) {
+    @When("I consume endpoint and I send the user information email, username password firstname lastname")
+    public void iConsumeEndpointAndISendTheUserInformationEmailUsernamePasswordFirstnameLastname() {
         user.attemptsTo(
                 PutUserTask.on()
         );
     }
-    @Then("I validate response service {int}")
-    public void iValidateResponseService(Integer resServer) {
+    @Then("I validate response service")
+    public void iValidateResponseService() {
 
         user.should(
                 seeThat(
                         "The response code was: ",
                         ServerResponse.was(),
-                        equalTo(resServer)
+                        equalTo(200)
                 )
         );
     }

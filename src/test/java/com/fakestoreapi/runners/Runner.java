@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/",
         glue = "com.fakestoreapi.stepDefinitions",
-        tags = "@DeleteUser",
+        tags = "@PostUser or @PutUser or @DeleteUser",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 
